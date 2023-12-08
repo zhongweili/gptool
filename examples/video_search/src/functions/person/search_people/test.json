@@ -1,0 +1,17 @@
+[
+    {
+        "message": "Search for people with name 'Jackie Chan'.",
+        "input": {
+            "query": "Jackie Chan"
+        },
+        "output": {
+            "search_results": [
+                {
+                    "id": 1,
+                    "name": "Jackie Chan",
+                    "known_for_department": "Acting"
+                }
+            ]
+        }
+    }
+]
