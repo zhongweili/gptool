@@ -85,7 +85,7 @@ class Gptool:
                     {
                         "role": "tool",
                         "tool_call_id": tool_call_id,
-                        "content": json.dumps(function_response),
+                        "content": json.dumps(function_response, ensure_ascii=False),
                     }
                 )
 
