@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "gptool"
-version = "0.1.2"
+version = "0.1.4"
 description = "A compact tool for OpenAI API, offering streamlined function management and efficient API tool(function calling) usage through Pydantic validation and vector database indexingg."
 authors = ["zhongwei <lizhongwei.nkcs@gmail.com>"]
 readme = "README.md"

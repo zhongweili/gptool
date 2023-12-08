@@ -66,7 +66,7 @@ class Gptool:
         )
 
         openai_result = self.call_openai(merged, top_functions)
-        if not openai_result.tool_calls:
+        if openai_result.content:
             return openai_result.model_dump_json(indent=2, exclude_unset=True)
 
         messages = merged.get("messages")
@@ -79,7 +79,9 @@ class Gptool:
                 name=function_name, args=function_args
             )
 
-            if "error" not in function_response:
+            if "error" in function_response:
+                print(function_response)
+            else:
                 messages.append(openai_result)
                 messages.append(
                     {
@@ -104,14 +106,12 @@ class Gptool:
         for top_function in top_functions:
             tools.append({"type": "function", "function": top_function})
         openai_result = self.openai.chat(**openai_args, tools=tools)
-
         return openai_result
 
     def call_openai_no_function(
         self, openai_args: Dict[str, Any]
     ) -> Tuple[str, Dict[str, Any]]:
         openai_result = self.openai.chat(**openai_args)
-
         return openai_result
 
     @staticmethod
